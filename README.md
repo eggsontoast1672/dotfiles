@@ -20,4 +20,16 @@ If you're using zsh at all, you probably know to put your .zshrc in your home di
 3. If you've gotten this far without error, you've successfully installed zsh and made it your default shell.
 
 ### Dependencies:
+- zsh
 - neofetch
+
+## init.vim
+
+### Overview
+Bear in mind that I am using neovim here and not regular vim. Make sure you put this file in the `~/.config/nvim/` directory. Also, another notable thing to mention is that I am using neovim version 0.5.0 here, so if you just did `sudo apt install neovim` on ubuntu, that's not going to cut it. Make sure you're using a version later than or equal to version 0.5.0 by running `nvim --version`.
+
+In order for this init.vim to work, make sure you install vim-plug. Refer to the [github repo](https://github.com/junegunn/vim-plug) for detailed install instructions. If building from source is scary to you, I understand, but if you're planning on sticking with GNU/linux, you may as well learn now.
+
+### Dependencies
+- neovim 0.5.0
+- vim-plug
