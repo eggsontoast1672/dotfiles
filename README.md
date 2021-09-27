@@ -1,6 +1,12 @@
 # dotfiles
 My dotfiles for various programs.
 
+I understand that my dotfiles aren't necessarily that complicated, but I've added some explinations targeted at newbies for the sake of clarity. I know what it's like to be new to something, and I also understand how much it can hurt when you're really interested in topic and the entire community just flames you for not having a lot of knowledge. 
+
+Just remember to read through this document thouroughly if you need help, and make sure to download all the required dependencies if your terminal is yelling at you for not being able to find a certain command.
+
+Happy customizing!
+
 ## .zshrc
 
 ### Overview
