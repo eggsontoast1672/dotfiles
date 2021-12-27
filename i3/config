@@ -155,12 +155,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Autostart programs
-exec_always ~/.config/polybar/launch.sh
-
 # Gaps
 gaps inner 10
 # gaps outer 5
 
-default_border pixel 0
+default_border pixel 2
 # default_floating_border pixel 2
