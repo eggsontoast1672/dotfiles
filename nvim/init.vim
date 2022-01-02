@@ -1,16 +1,14 @@
 call plug#begin('~/.config/nvim/plugged')
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/nvim-cmp'
-  Plug 'joshdick/onedark.vim'
+  Plug 'jiangmiao/auto-pairs'
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-treesitter/nvim-treesitter'
-  Plug 'preservim/nerdcommenter'
   Plug 'preservim/nerdtree'
   Plug 'tomasiser/vim-code-dark'
-  Plug 'turbio/bracey.vim'
 call plug#end()
 
-colorscheme codedark
+"colorscheme codedark
 filetype plugin on
 
 set colorcolumn=80
@@ -18,17 +16,14 @@ set expandtab
 set mouse=a
 set nowrap
 set relativenumber
-set shiftwidth=2
+set shiftwidth=4
 set signcolumn=number
 set smartindent
 set splitbelow
 set splitright
-set tabstop=2
+set tabstop=4
 
 let mapleader = ' '
-
-" NERDCommenter
-let g:NERDCreateDefaultMappings = 1
 
 " NERDTree
 nnoremap <Leader>n :NERDTreeFocus<CR>
