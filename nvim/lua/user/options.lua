@@ -1,5 +1,6 @@
 local tabsize = 2
 
+vim.o.colorcolumn = "80"
 vim.o.expandtab = true
 vim.o.guicursor = "i:block"
 vim.o.hidden = false
@@ -9,6 +10,7 @@ vim.o.number = true
 vim.o.relativenumber = true
 vim.o.scrolloff = 8
 vim.o.shiftwidth = tabsize
+vim.o.signcolumn = "yes"
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.tabstop = tabsize

@@ -9,6 +9,6 @@ require("nvim-treesitter.configs").setup({
   },
 	markid = {
 		colors = COLORS,
-		enable = true,
+		enable = false,
 	},
 })

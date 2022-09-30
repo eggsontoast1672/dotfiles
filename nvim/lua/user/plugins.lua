@@ -23,10 +23,28 @@ return packer.startup(function(use)
 		as = "dracula",
 	})
 
-	-- markid
+  -- hrsh7th
+  use("hrsh7th/nvim-cmp") -- It's important that this one is installed
+                          -- before the rest
+
+  use("hrsh7th/cmp-nvim-lsp")
+  use("hrsh7th/cmp-buffer")
+  use("hrsh7th/cmp-path")
+  use("hrsh7th/cmp-vsnip")
+  use("hrsh7th/vim-vsnip")
+
+  -- markid
 	use("David-Kunz/markid")
 
-	-- nvim-treesitter
+  -- nvim-lspconfig
+  use({
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("user.lspconfig")
+    end,
+  })
+
+  -- nvim-treesitter
   use({
     "nvim-treesitter/nvim-treesitter",
 		config = function()
