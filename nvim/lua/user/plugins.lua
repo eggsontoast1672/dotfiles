@@ -17,15 +17,14 @@ if not status_ok then
 end
 
 return packer.startup(function(use)
-	-- dracula/vim
-	use({
-		"dracula/vim",
-		as = "dracula",
-	})
+  -- dracula/vim
+  use({
+    "dracula/vim",
+    as = "dracula",
+  })
 
   -- hrsh7th
-  use("hrsh7th/nvim-cmp") -- It's important that this one is installed
-                          -- before the rest
+  use("hrsh7th/nvim-cmp") -- It's important that this one is installed before the rest
 
   use("hrsh7th/cmp-nvim-lsp")
   use("hrsh7th/cmp-buffer")
@@ -34,7 +33,7 @@ return packer.startup(function(use)
   use("hrsh7th/vim-vsnip")
 
   -- markid
-	use("David-Kunz/markid")
+  use("David-Kunz/markid")
 
   -- nvim-lspconfig
   use({
@@ -44,12 +43,20 @@ return packer.startup(function(use)
     end,
   })
 
+  -- nvim-semantic-tokens
+  use({
+    "theHamsta/nvim-semantic-tokens",
+    config = function()
+      require("user.semantic")
+    end,
+  })
+
   -- nvim-treesitter
   use({
     "nvim-treesitter/nvim-treesitter",
-		config = function()
-			require("user.treesitter")
-		end,
+    config = function()
+      require("user.treesitter")
+    end,
     run = ":TSUpdate",
   })
 
@@ -59,13 +66,13 @@ return packer.startup(function(use)
   -- telescope.nvim
   use({
     "nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
-		config = function()
-			require("user.telescope")
-		end,
-		requires = {
-			"nvim-lua/plenary.nvim",
-		},
+    branch = "0.1.x",
+    config = function()
+      require("user.telescope")
+    end,
+    requires = {
+      "nvim-lua/plenary.nvim",
+    },
   })
 
   if PACKER_BOOTSTRAP then
