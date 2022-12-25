@@ -1,28 +1,16 @@
-local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = vim.fn.system({
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  })
-  vim.cmd("packadd packer.nvim")
+local function ensure_packer()
+  local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    vim.fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
+    vim.cmd("packadd packer.nvim")
+    return true
+  end
+  return false
 end
 
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
+local packer_bootstrap = ensure_packer()
 
-return packer.startup(function(use)
-  -- dracula/vim
-  use({
-    "dracula/vim",
-    as = "dracula",
-  })
-
+return require("packer").startup(function(use)
   -- hrsh7th
   use("hrsh7th/nvim-cmp") -- It's important that this one is installed before the rest
 
@@ -32,31 +20,19 @@ return packer.startup(function(use)
   use("hrsh7th/cmp-vsnip")
   use("hrsh7th/vim-vsnip")
 
-  -- markid
-  use("David-Kunz/markid")
-
   -- nvim-lspconfig
   use({
     "neovim/nvim-lspconfig",
-    config = function()
-      require("user.lspconfig")
-    end,
-  })
-
-  -- nvim-semantic-tokens
-  use({
-    "theHamsta/nvim-semantic-tokens",
-    config = function()
-      require("user.semantic")
-    end,
+    requires = {
+      "j-hui/fidget.nvim",
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+    },
   })
 
   -- nvim-treesitter
   use({
     "nvim-treesitter/nvim-treesitter",
-    config = function()
-      require("user.treesitter")
-    end,
     run = ":TSUpdate",
   })
 
@@ -67,15 +43,23 @@ return packer.startup(function(use)
   use({
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
-    config = function()
-      require("user.telescope")
-    end,
     requires = {
       "nvim-lua/plenary.nvim",
     },
   })
 
-  if PACKER_BOOTSTRAP then
-    packer.sync()
+  -- UI Plugins
+  use({
+    "Shatur/neovim-ayu",
+    "lukas-reineke/indent-blankline.nvim",
+    "martinsione/darkplus.nvim",
+    "navarasu/onedark.nvim",
+    "nvim-lualine/lualine.nvim",
+  })
+
+  use("rust-lang/rust.vim")
+
+  if packer_bootstrap then
+    require("packer").sync()
   end
 end)
