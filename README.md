@@ -1,8 +1,6 @@
-# dotfiles
+# Dotfiles
 
-This is, you guessed it, my dotfiles. Below you'll find instructions on
-how to get the various parts of this repository functioning properly.
-
-## neovim
-
-I'd imagine some stuff going here later.
+Here they be, the original eggsontoast1672 dotfiles. I've mostly let this
+repository rot away to nothingness over the years, but I think I'm finally
+ready to get it functioning again. Any program whose dotfiles require further
+explanation to set up propery will be detailed below. Happy perusing!
