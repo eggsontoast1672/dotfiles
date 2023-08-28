@@ -1,4 +1,18 @@
 theme = "rose_pine"
 
 [editor]
+bufferline = "multiple"
+completion-trigger-len = 1
+idle-timeout = 0
 line-number = "relative"
+rulers = [120]
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
