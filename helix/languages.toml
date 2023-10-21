@@ -9,3 +9,15 @@ unit = "    "
 [language.language-server]
 command = "clangd"
 args = ["--compile-commands-dir=build"]
+
+[[language]]
+name = "c"
+auto-format = true
+
+[language.indent]
+tab-width = 4
+unit = "    "
+
+[language.language-server]
+command = "clangd"
+args = ["--compile-commands-dir=build"]

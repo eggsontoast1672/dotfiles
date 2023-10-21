@@ -4,7 +4,7 @@ theme = "rose_pine"
 completion-trigger-len = 1
 idle-timeout = 0
 line-number = "relative"
-rulers = [120]
+rulers = [80, 120]
 
 [editor.file-picker]
 hidden = false
