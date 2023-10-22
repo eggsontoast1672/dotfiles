@@ -1,11 +1,30 @@
 local function setup_keymaps()
+  vim.g.mapleader = " "
   local keymaps = require("config.keymaps").basic
   for _, keymap in pairs(keymaps) do
     vim.keymap.set(keymap[1], keymap[2], keymap[3])
   end
 end
 
-vim.g.mapleader = " "
+local function setup_options()
+  vim.opt.clipboard = "unnamedplus"
+  vim.opt.colorcolumn = "80"
+  vim.opt.completeopt = "menu"
+  vim.opt.expandtab = true
+  vim.opt.guicursor = "i:block"
+  vim.opt.number = true
+  vim.opt.relativenumber = true
+  vim.opt.scrolloff = 5
+  vim.opt.shiftwidth = 2
+  vim.opt.signcolumn = "yes"
+  vim.opt.smartindent = true
+  vim.opt.softtabstop = 2
+  vim.opt.splitbelow = true
+  vim.opt.splitright = true
+  vim.opt.tabstop = 2
+  vim.opt.termguicolors = true
+  vim.opt.wrap = false
+end
 
 setup_keymaps()
 
@@ -40,67 +59,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
--- Cmp stuff
+vim.cmd.colorscheme("gruvbox")
 
-local cmp = require("cmp")
+setup_options()
 
-cmp.setup({
-  mapping = cmp.mapping.preset.insert({
-    ["<tab>"] = cmp.mapping.confirm({ select = true }),
-  }),
-  snippet = {
-    expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
-    end,
-  },
-  sources = {
-    { name = "nvim_lsp" },
-    { name = "vsnip" },
-  },
-})
-
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(event)
-    for _, keybind in pairs(require("config.keymaps").lsp) do
-      vim.keymap.set("n", keybind[1], keybind[2], { buffer = event.buf })
-    end
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = event.buf,
-      callback = function(event)
-        vim.lsp.buf.format()
-      end,
-    })
-  end,
-})
-
-require("config").setup({
-  colorscheme = "gruvbox",
-  globals = {
-    mapleader = " ",
-  },
-  options = {
-    clipboard = "unnamedplus",
-    colorcolumn = "80",
-    completeopt = "menu",
-    expandtab = true,
-    guicursor = "i:block",
-    number = true,
-    relativenumber = true,
-    scrolloff = 5,
-    shiftwidth = 2,
-    signcolumn = "yes",
-    smartindent = true,
-    softtabstop = 2,
-    splitbelow = true,
-    splitright = true,
-    tabstop = 2,
-    termguicolors = true,
-    wrap = false,
-  },
-  servers = {
-    "clangd",
-    "gopls",
-    "pyright",
-    "rust_analyzer",
-  },
-})
+require("config.lsp").setup()
