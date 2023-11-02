@@ -1,7 +1,10 @@
 local M = {}
 
+M.format = false
+
 M.servers = {
   "clangd",
+  "clojure_lsp",
   "gopls",
   "pyright",
   "rust_analyzer",
@@ -28,12 +31,14 @@ M.setup = function()
         vim.keymap.set("n", keymap.lhs, keymap.rhs, { buffer = bufnr })
       end
 
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        buffer = bufnr,
-        callback = function()
-          vim.lsp.buf.format()
-        end,
-      })
+      if M.format then
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = bufnr,
+          callback = function()
+            vim.lsp.buf.format()
+          end,
+        })
+      end
 
       -- I don't like semantic tokens right now.
       local client = vim.lsp.get_client_by_id(args.data.client_id)
