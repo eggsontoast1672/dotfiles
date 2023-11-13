@@ -4,12 +4,23 @@ local function buffer_set_tab_width(buffer, amount)
   vim.bo[buffer].tabstop = amount
 end
 
+local function setup_colorscheme()
+  vim.cmd.colorscheme("catppuccin")
+  -- vim.cmd([[
+  --   highlight Normal ctermbg=none guibg=none
+  --   highlight VertSplit ctermbg=none guibg=none
+  -- ]])
+end
+
 local function setup_options()
   vim.opt.clipboard = "unnamedplus"
   vim.opt.colorcolumn = "80"
   vim.opt.completeopt = "menu"
+  vim.opt.cursorline = true
   vim.opt.expandtab = true
   vim.opt.guicursor = "i:block"
+  vim.opt.hlsearch = false
+  vim.opt.laststatus = 2
   vim.opt.number = true
   vim.opt.relativenumber = true
   vim.opt.scrolloff = 5
@@ -63,10 +74,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
 -- correctly.
 require("config.tools").setup_lazy("config.plugins")
 require("config.lsp").setup()
+require("config.format").setup()
 
 -- However, the colorscheme must be initialized after the plugins, because I
 -- might using a plugin colorscheme.
-vim.cmd.colorscheme("gruvbox")
-vim.cmd([[
-  highlight Normal ctermbg=none guibg=none
-]])
+setup_colorscheme()

@@ -1,0 +1,4 @@
+configuration {
+    modi: "drun";
+    font: "Ubuntu Mono 16";
+}

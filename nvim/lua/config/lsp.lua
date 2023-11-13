@@ -1,13 +1,13 @@
 local M = {}
 
-M.format = false
-
 M.servers = {
   "clangd",
   "clojure_lsp",
+  "cmake",
   "gopls",
   "pyright",
   "rust_analyzer",
+  "tsserver",
 }
 
 M.keymaps = {
@@ -31,18 +31,11 @@ M.setup = function()
         vim.keymap.set("n", keymap.lhs, keymap.rhs, { buffer = bufnr })
       end
 
-      if M.format then
-        vim.api.nvim_create_autocmd("BufWritePre", {
-          buffer = bufnr,
-          callback = function()
-            vim.lsp.buf.format()
-          end,
-        })
+      -- I don't like semantic tokens right now, but I do in Rust.
+      if vim.bo[args.buf].filetype ~= "rust" then
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        client.server_capabilities.semanticTokensProvider = nil
       end
-
-      -- I don't like semantic tokens right now.
-      local client = vim.lsp.get_client_by_id(args.data.client_id)
-      client.server_capabilities.semanticTokensProvider = nil
     end,
   })
 

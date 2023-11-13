@@ -1,39 +1,23 @@
-function setup_treesitter()
-  require("nvim-treesitter.configs").setup({
-    highlight = {
-      enable = false,
-    },
-  })
-end
-
 return {
   {
-    "blazkowolf/gruber-darker.nvim",
+    "catppuccin/nvim",
+    name = "catppuccin",
+    config = require("config.catppuccin").setup,
   },
-  {
-    "hrsh7th/cmp-nvim-lsp",
-    dependencies = {
-      "hrsh7th/nvim-cmp",
-    },
-  },
-  {
-    "hrsh7th/cmp-vsnip",
-    dependencies = {
-      "hrsh7th/vim-vsnip",
-    },
-  },
-  {
-    "morhetz/gruvbox",
-  },
-  {
-    "neovim/nvim-lspconfig",
-  },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "hrsh7th/cmp-vsnip" },
+  { "hrsh7th/nvim-cmp" },
+  { "hrsh7th/vim-vsnip" },
+  { "mhartington/formatter.nvim" },
+  { "morhetz/gruvbox" },
+  { "navarasu/onedark.nvim" },
+  { "neovim/nvim-lspconfig" },
   {
     "nvim-treesitter/nvim-treesitter",
     build = function()
       pcall(vim.cmd.TSUpdate)
     end,
-    config = setup_treesitter,
+    config = require("config.treesitter").setup,
   },
   {
     "nvim-telescope/telescope.nvim",

@@ -1,0 +1,18 @@
+window:
+  opacity: 1.0
+  resize_increments: true
+
+font: 
+  normal:
+    family: Martian Mono
+    style: Regular
+  bold:
+    family: Martian Mono
+    style: Bold
+  italic:
+    family: Martian Mono
+    style: Italic
+  bold_italic:
+    family: Martian Mono
+    style: Bold Italic
+  size: 12.0
