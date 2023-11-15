@@ -7,6 +7,7 @@ M.servers = {
   "gopls",
   "pyright",
   "rust_analyzer",
+  "serve_d",
   "tsserver",
 }
 
