@@ -5,7 +5,7 @@ local function buffer_set_tab_width(buffer, amount)
 end
 
 local function setup_colorscheme()
-  vim.cmd.colorscheme("catppuccin")
+  vim.cmd.colorscheme("melange")
   -- vim.cmd([[
   --   highlight Normal ctermbg=none guibg=none
   --   highlight VertSplit ctermbg=none guibg=none
@@ -25,6 +25,7 @@ local function setup_options()
   vim.opt.relativenumber = true
   vim.opt.scrolloff = 5
   vim.opt.shiftwidth = 4
+  vim.opt.showmode = false
   vim.opt.signcolumn = "yes"
   vim.opt.smartindent = true
   vim.opt.softtabstop = 4
@@ -35,16 +36,9 @@ local function setup_options()
   vim.opt.wrap = false
 end
 
-local function setup_keymaps()
-  vim.g.mapleader = " "
-  local keymaps = require("config.keymaps").basic
-  for _, keymap in pairs(keymaps) do
-    vim.keymap.set(keymap[1], keymap[2], keymap[3])
-  end
-end
+require("config.keymaps").setup()
 
 setup_options()
-setup_keymaps()
 
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*.go",
@@ -73,6 +67,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 -- lsp config fail to load, I still want my options and autocommands to be set
 -- correctly.
 require("config.tools").setup_lazy("config.plugins")
+require("config.statusline").setup()
 require("config.lsp").setup()
 require("config.format").setup()
 

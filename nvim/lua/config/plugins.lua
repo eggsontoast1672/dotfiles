@@ -1,9 +1,4 @@
 return {
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    config = require("config.catppuccin").setup,
-  },
   { "hrsh7th/cmp-nvim-lsp" },
   { "hrsh7th/cmp-vsnip" },
   { "hrsh7th/nvim-cmp" },
@@ -12,6 +7,12 @@ return {
   { "morhetz/gruvbox" },
   { "navarasu/onedark.nvim" },
   { "neovim/nvim-lspconfig" },
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     build = function()
@@ -30,4 +31,5 @@ return {
       { "<leader>/", "<cmd>Telescope live_grep<cr>" },
     },
   },
+  { "savq/melange-nvim" },
 }
