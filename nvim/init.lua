@@ -1,3 +1,7 @@
+-- TODO:
+-- Set up auto formatting for Haskell files using vim.lsp.buf.format()
+-- Set tab size to 2 for Haskell files
+
 local function buffer_set_tab_width(buffer, amount)
   vim.bo[buffer].shiftwidth = amount
   vim.bo[buffer].softtabstop = amount
@@ -48,7 +52,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*.lua",
+  pattern = "*.hs,*.lua",
   callback = function(event)
     buffer_set_tab_width(event.buf, 2)
   end,

@@ -35,6 +35,15 @@ local function buffer_use_semantic(buffer)
   return false
 end
 
+local function enable_lsp_formatting(buffer)
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    buffer = buffer,
+    callback = function()
+      vim.lsp.buf.format()
+    end,
+  })
+end
+
 return {
   setup = function()
     local lspconfig = require("lspconfig")
@@ -46,6 +55,10 @@ return {
       callback = function(args)
         for _, keymap in pairs(keymaps) do
           vim.keymap.set("n", keymap.lhs, keymap.rhs, { buffer = bufnr })
+        end
+
+        if vim.bo[args.buf].filetype == "haskell" then
+          enable_lsp_formatting(args.buf)
         end
 
         -- if not buffer_use_semantic(args.buf) then
