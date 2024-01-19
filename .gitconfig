@@ -3,3 +3,5 @@
 [user]
 	name = Paul Zupan
 	email = paul.zupan.13@gmail.com
+[advice]
+	detachedHead = false

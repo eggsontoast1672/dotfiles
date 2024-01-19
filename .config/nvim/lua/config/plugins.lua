@@ -31,5 +31,12 @@ return {
       { "<leader>/", "<cmd>Telescope live_grep<cr>" },
     },
   },
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("lsp_signature").setup(opts)
+    end,
+  },
   { "savq/melange-nvim" },
 }

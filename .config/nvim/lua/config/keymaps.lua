@@ -1,4 +1,5 @@
 local keymaps = {
+  { "i", "jk", "<esc>" },
   { "n", "<leader>e", vim.cmd.Explore },
   { "n", "<leader>he", ":%!xxd<cr>" },
   { "n", "<leader>hr", ":%!xxd -r<cr>" },

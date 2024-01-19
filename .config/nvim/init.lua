@@ -1,6 +1,8 @@
--- TODO:
--- Set up auto formatting for Haskell files using vim.lsp.buf.format()
--- Set tab size to 2 for Haskell files
+--  _       _ _     _             
+-- (_)_ __ (_) |_  | |_   _  __ _ 
+-- | | '_ \| | __| | | | | |/ _` |
+-- | | | | | | |_ _| | |_| | (_| |
+-- |_|_| |_|_|\__(_)_|\__,_|\__,_|                               
 
 local function buffer_set_tab_width(buffer, amount)
   vim.bo[buffer].shiftwidth = amount
@@ -16,33 +18,8 @@ local function setup_colorscheme()
   -- ]])
 end
 
-local function setup_options()
-  vim.opt.clipboard = "unnamedplus"
-  vim.opt.colorcolumn = "80"
-  vim.opt.completeopt = "menu"
-  vim.opt.cursorline = true
-  vim.opt.expandtab = true
-  vim.opt.guicursor = "i:block"
-  vim.opt.hlsearch = false
-  vim.opt.laststatus = 2
-  vim.opt.number = true
-  vim.opt.relativenumber = true
-  vim.opt.scrolloff = 5
-  vim.opt.shiftwidth = 4
-  vim.opt.showmode = false
-  vim.opt.signcolumn = "yes"
-  vim.opt.smartindent = true
-  vim.opt.softtabstop = 4
-  vim.opt.splitbelow = true
-  vim.opt.splitright = true
-  vim.opt.tabstop = 4
-  vim.opt.termguicolors = true
-  vim.opt.wrap = false
-end
-
 require("config.keymaps").setup()
-
-setup_options()
+require("config.options").setup()
 
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*.go",
