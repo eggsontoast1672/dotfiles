@@ -7,6 +7,7 @@ return {
   { "morhetz/gruvbox" },
   { "navarasu/onedark.nvim" },
   { "neovim/nvim-lspconfig" },
+  { "norcalli/nvim-colorizer.lua", main = "colorizer" },
   {
     "nvim-lualine/lualine.nvim",
     dependencies = {

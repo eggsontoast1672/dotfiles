@@ -3,10 +3,10 @@ local M = {}
 M.setup = function()
   require("formatter").setup({
     filetype = {
-      c = require("formatter.filetypes.c").astyle,
-      cpp = require("formatter.filetypes.cpp").astyle,
+      -- c = require("formatter.filetypes.c").astyle,
+      -- cpp = require("formatter.filetypes.cpp").astyle,
       go = require("formatter.filetypes.go").gofmt,
-      python = require("formatter.filetypes.python").black, 
+      -- python = require("formatter.filetypes.python").black, 
       rust = require("formatter.filetypes.rust").rustfmt,
     },
   })
