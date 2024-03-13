@@ -13,7 +13,7 @@ export CMAKE_EXPORT_COMPILE_COMMANDS=ON
 export CMAKE_GENERATOR=Ninja
 export EDITOR=nvim
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-export PATH="$HOME/.local/bin:$HOME/opt/neovim/bin:$PATH"
+export PATH="$HOME/.config/emacs/bin:$HOME/.local/bin:$HOME/opt/neovim/bin:$PATH"
 export PS1='\n\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]\n\$ '
 
 if [ -f $HOME/.cargo/env ]; then
@@ -27,3 +27,13 @@ fi
 if [ -f $HOME/.opam/opam-init/init.sh ]; then
 	source $HOME/.opam/opam-init/init.sh
 fi
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
+
+# Pyenv shit
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"

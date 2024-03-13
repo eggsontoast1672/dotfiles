@@ -7,7 +7,7 @@ local commands = {
       end,
     },
     {
-      pattern = "*.hs,*.js,*.lua",
+      pattern = "*.css,*.hs,*.html,*.js,*.lua,*.ml,*.mli",
       callback = function(event)
         vim.bo[event.buf].shiftwidth = 2
         vim.bo[event.buf].softtabstop = 2

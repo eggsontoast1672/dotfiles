@@ -18,4 +18,4 @@ require("config.format").setup()
 
 -- However, the colorscheme must be initialized after the plugins, because I
 -- might using a plugin colorscheme.
-vim.cmd.colorscheme("melange")
+vim.cmd.colorscheme("gruvbox-material")

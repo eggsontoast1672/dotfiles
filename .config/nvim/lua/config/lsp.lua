@@ -4,11 +4,21 @@ local servers = {
   "clangd",
   "clojure_lsp",
   "cmake",
+  "fsautocomplete",
   "gopls",
   "hls",
+  "ocamllsp",
   "pyright",
   "rust_analyzer",
   "tsserver",
+}
+
+local configurations = {
+  gopls = {
+    ui = {
+      semanticTokens = true,
+    },
+  },
 }
 
 local keymaps = {
@@ -48,7 +58,9 @@ return {
   setup = function()
     local lspconfig = require("lspconfig")
     for _, server in pairs(servers) do
-      lspconfig[server].setup({})
+      lspconfig[server].setup({
+        settings = configurations[server],
+      })
     end
 
     vim.api.nvim_create_autocmd("LspAttach", {

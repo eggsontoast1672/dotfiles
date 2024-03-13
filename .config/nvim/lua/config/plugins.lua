@@ -1,4 +1,5 @@
 return {
+  { "adelarsq/neofsharp.vim" },
   { "hrsh7th/cmp-nvim-lsp" },
   { "hrsh7th/cmp-vsnip" },
   { "hrsh7th/nvim-cmp" },
@@ -39,5 +40,6 @@ return {
       require("lsp_signature").setup(opts)
     end,
   },
+  { "sainnhe/gruvbox-material" },
   { "savq/melange-nvim" },
 }
