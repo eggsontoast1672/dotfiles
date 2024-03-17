@@ -1,14 +1,7 @@
-theme = "rose_pine"
+theme = "ayu_mirage"
 
 [editor]
 completion-trigger-len = 1
 idle-timeout = 0
 line-number = "relative"
-rulers = [80, 120]
-
-[editor.file-picker]
-hidden = false
-
-[editor.indent-guides]
-character = "▏"
-render = true
+rulers = [80]

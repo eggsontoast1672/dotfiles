@@ -5,3 +5,5 @@
 	email = paul.zupan.13@gmail.com
 [advice]
 	detachedHead = false
+[core]
+	editor = lvim
