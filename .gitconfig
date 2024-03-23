@@ -6,4 +6,4 @@
 [advice]
 	detachedHead = false
 [core]
-	editor = lvim
+	editor = nvim
