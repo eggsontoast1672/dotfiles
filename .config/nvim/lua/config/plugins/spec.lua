@@ -1,27 +1,19 @@
 return {
-  { "adelarsq/neofsharp.vim" },
   { "hrsh7th/cmp-nvim-lsp" },
   { "hrsh7th/cmp-vsnip" },
   { "hrsh7th/nvim-cmp" },
   { "hrsh7th/vim-vsnip" },
-  { "mhartington/formatter.nvim" },
-  { "morhetz/gruvbox" },
-  { "navarasu/onedark.nvim" },
   { "neovim/nvim-lspconfig" },
-  { "norcalli/nvim-colorizer.lua", main = "colorizer" },
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = function()
-      pcall(vim.cmd.TSUpdate)
-    end,
-    config = require("config.treesitter").setup,
-  },
+  { "sainnhe/gruvbox-material" },
+  { "williamboman/mason.nvim" },
+  { "williamboman/mason-lspconfig.nvim" },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   build = function()
+  --     pcall(vim.cmd.TSUpdate)
+  --   end,
+  --   config = require("config.treesitter").setup,
+  -- },
   {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
@@ -40,6 +32,4 @@ return {
       require("lsp_signature").setup(opts)
     end,
   },
-  { "sainnhe/gruvbox-material" },
-  { "savq/melange-nvim" },
 }
