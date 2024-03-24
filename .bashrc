@@ -7,7 +7,7 @@ if ! shopt -oq posix; then
 fi
 
 alias grep='grep --color=auto'
-alias ls="$HOME/scripts/list --color=auto --group-directories-first"
+alias ls="$HOME/Scripts/list --color=auto --group-directories-first"
 
 export CMAKE_EXPORT_COMPILE_COMMANDS=ON
 export CMAKE_GENERATOR=Ninja
