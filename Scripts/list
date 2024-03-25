@@ -3,9 +3,9 @@
 # I want to see all files, even hidden ones, when I'm in my dotfiles directory.
 # They must be hidden since that's how stow works, but I still want to see them
 # without having to add the -A flag myself every time.
-case "$(pwd)" in
-    *dotfiles*) flags='-A' ;;
-    *) flags='' ;;
-esac
+flags='--color=auto --group-directories-first -l'
+if pwd | grep dotfiles; then
+    flags+=' -A'
+fi
 
-ls $flags $@
+ls ${flags} ${@}

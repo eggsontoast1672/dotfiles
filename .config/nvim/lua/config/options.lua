@@ -6,7 +6,7 @@ return {
   expandtab = true,
   guicursor = "i:block",
   hlsearch = false,
-  laststatus = 2,
+  laststatus = 3,
   number = true,
   relativenumber = true,
   scrolloff = 5,

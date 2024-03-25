@@ -53,9 +53,9 @@ keys = [
     Key([mod, "shift"],   "q",   lazy.window.kill(),              desc="Kill focused window"),
     Key([mod],            "f",   lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
     Key([mod],            "t",   lazy.window.toggle_floating(),   desc="Toggle floating on the focused window"),
-    Key([mod, "control"], "r",   lazy.reload_config(),            desc="Reload the config"),
-    Key([mod, "control"], "q",   lazy.shutdown(),                 desc="Shutdown Qtile"),
-    Key([mod],            "r",   lazy.spawncmd(),                 desc="Spawn a command using a prompt widget"),
+    Key([mod, "shift"],   "r",   lazy.reload_config(),            desc="Reload the config"),
+    Key([mod, "shift"],   "e",   lazy.shutdown(),                 desc="Shutdown Qtile"),
+    Key([mod],            "d",   lazy.spawncmd(),                 desc="Spawn a command using a prompt widget"),
 ]
 
 # Add key bindings to switch VTs in Wayland.

@@ -4,6 +4,13 @@ local options = require("config.options")
 
 local M = {}
 
+M.buffer_set_indentation = function(opts)
+  vim.opt_local.expandtab = opts.expand
+  vim.opt_local.shiftwidth = opts.width
+  vim.opt_local.softtabstop = opts.width
+  vim.opt_local.tabstop = opts.width
+end
+
 M.setup_autocmds = function()
   for kind, specs in pairs(autocmds) do
     for _, spec in pairs(specs) do

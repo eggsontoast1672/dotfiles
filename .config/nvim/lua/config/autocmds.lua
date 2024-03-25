@@ -1,13 +1,21 @@
 return {
+  BufWritePre = {
+    {
+      callback = function()
+        -- Looks cryptic, but just trims trailing whitespace on save by
+        -- replacing any amount of whitespace at the end of a line with
+        -- nothing. The 'e' at the end prevents it from erroring when it didn't
+        -- match anything.
+        vim.cmd([[:%s/\s\+$//e]])
+      end,
+    },
+  },
   TermOpen = {
     {
-      pattern = "*",
       callback = function()
-        local win = vim.api.nvim_get_current_win()
-
-        vim.wo[win].number = false
-        vim.wo[win].relativenumber = false
-        vim.wo[win].signcolumn = "no"
+        vim.opt_local.number = false
+        vim.opt_local.relativenumber = false
+        vim.opt_local.signcolumn = "no"
       end,
     },
   },
