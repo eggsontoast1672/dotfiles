@@ -1,4 +1,4 @@
-return {
+local M = {
   { "hrsh7th/cmp-nvim-lsp" },
   { "hrsh7th/cmp-vsnip" },
   { "hrsh7th/nvim-cmp" },
@@ -8,3 +8,5 @@ return {
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
 }
+
+return M

@@ -1,4 +1,4 @@
-return {
+local M = {
   clipboard = "unnamedplus",
   colorcolumn = "80",
   completeopt = "menu",
@@ -21,3 +21,5 @@ return {
   termguicolors = true,
   wrap = false,
 }
+
+return M

@@ -1,4 +1,4 @@
-return {
+local M = {
   { mode = "i", lhs = "jk", rhs = "<esc>" },
   { mode = "n", lhs = "<leader>e", rhs = vim.cmd.Explore },
   { mode = "n", lhs = "<leader>he", rhs = ":%!xxd<cr>" },
@@ -8,3 +8,5 @@ return {
   { mode = "n", lhs = "<leader>w", rhs = vim.cmd.write },
   { mode = "t", lhs = "<esc>", rhs = "<c-\\><c-n>" },
 }
+
+return M

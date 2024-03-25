@@ -1,4 +1,4 @@
-return {
+local M = {
   "nvim-telescope/telescope.nvim",
   branch = "0.1.x",
   dependencies = {
@@ -9,3 +9,5 @@ return {
     { "<leader>/", "<cmd>Telescope live_grep<cr>" },
   },
 }
+
+return M

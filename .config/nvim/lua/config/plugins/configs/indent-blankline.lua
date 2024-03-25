@@ -1,4 +1,4 @@
-return {
+local M = {
   "lukas-reineke/indent-blankline.nvim",
   config = {
     scope = {
@@ -8,3 +8,5 @@ return {
   },
   main = "ibl",
 }
+
+return M

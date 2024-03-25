@@ -1,4 +1,4 @@
-return {
+local M = {
   BufWritePre = {
     {
       callback = function()
@@ -19,4 +19,13 @@ return {
       end,
     },
   },
+  TextYankPost = {
+    {
+      callback = function()
+        vim.highlight.on_yank()
+      end,
+    },
+  },
 }
+
+return M

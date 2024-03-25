@@ -9,7 +9,7 @@ M.config = function()
     highlight = {
       enable = true,
     },
-  }) 
+  })
 end
 
 return M
