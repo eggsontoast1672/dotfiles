@@ -10,15 +10,15 @@ local M = {
       end,
     },
   },
-  TermOpen = {
-    {
-      callback = function()
-        vim.opt_local.number = false
-        vim.opt_local.relativenumber = false
-        vim.opt_local.signcolumn = "no"
-      end,
-    },
-  },
+  -- TermOpen = {
+  --   {
+  --     callback = function()
+  --       vim.opt_local.number = false
+  --       vim.opt_local.relativenumber = false
+  --       vim.opt_local.signcolumn = "no"
+  --     end,
+  --   },
+  -- },
   TextYankPost = {
     {
       callback = function()
