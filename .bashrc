@@ -16,5 +16,14 @@ export PS1='\n\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]\n\$
 
 PATH="${PATH}:${HOME}/.local/bin"
 
+if [ -d "${HOME}/.bashrc.d" ]; then
+    for script in "${HOME}/.bashrc.d/"*; do
+        if [ -f "${script}" ]; then
+            source "${script}"
+        fi
+    done
+    unset script
+fi
+
 # Execute neofetch if it is installed
 command -v neofetch > /dev/null 2>&1 && neofetch
