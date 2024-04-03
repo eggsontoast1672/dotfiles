@@ -5,10 +5,17 @@ local mason_lspconfig = require("mason-lspconfig")
 
 local keymaps = require("config.lsp.keymaps")
 
-local function setup_formatting()
+local function setup_formatting(buffer)
   vim.api.nvim_create_autocmd("BufWritePre", {
+    buffer = buffer,
     callback = function()
-      vim.lsp.buf.format()
+      vim.lsp.buf.format({
+        filter = function(client)
+          -- Not all clients support formatting, this ensures that neovim will
+          -- not raise an error if that is the case
+          return client.server_capabilities.documentFormattingProvider
+        end,
+      })
     end,
   })
 end
@@ -24,7 +31,7 @@ local M = {}
 M.setup_on_attach = function()
   vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
-      setup_formatting()
+      setup_formatting(args.buf)
       setup_keymaps(args.buf)
     end,
   })
@@ -55,6 +62,8 @@ M.setup_mason = function()
       lspconfig[server].setup({})
     end,
   })
+
+  lspconfig.gdscript.setup({})
 end
 
 return M

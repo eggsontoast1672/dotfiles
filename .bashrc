@@ -12,7 +12,7 @@ export CMAKE_GENERATOR=Ninja
 export EDITOR=nvim
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export GOPATH="${HOME}/Go"
-export PS1='\n\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]\n\$ '
+export PS1='\[\033[01;31m\][\[\033[01;33m\]\u\[\033[01;32m\]@\[\033[01;34m\]\h\[\033[00m\] \[\033[01;35m\]\w\[\033[01;31m\]]\[\033[01;97m\]\$\[\033[00m\] '
 
 PATH="${PATH}:${HOME}/.local/bin"
 

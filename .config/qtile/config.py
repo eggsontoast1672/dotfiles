@@ -55,7 +55,7 @@ keys = [
     Key([mod, "shift"],   "space", lazy.window.toggle_floating(),   desc="Toggle floating on the focused window"),
     Key([mod, "shift"],   "r",     lazy.reload_config(),            desc="Reload the config"),
     Key([mod, "shift"],   "e",     lazy.shutdown(),                 desc="Shutdown Qtile"),
-    Key([mod],            "d",     lazy.spawncmd(),                 desc="Spawn a command using a prompt widget"),
+    Key([mod],            "d",     lazy.spawn("rofi -show run"),    desc="Spawn a command using a prompt widget"),
 ]
 
 # Add key bindings to switch VTs in Wayland.

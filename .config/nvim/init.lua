@@ -4,6 +4,10 @@
 -- | | | | | | |_ _| | |_| | (_| |
 -- |_|_| |_|_|\__(_)_|\__,_|\__,_|
 
+if vim.g.vscode then
+  return
+end
+
 local utils = require("config.utils")
 
 utils.setup_autocmds()
@@ -18,4 +22,6 @@ require("config.lsp").setup()
 
 -- However, the colorscheme must be initialized after the plugins, because I
 -- might using a plugin colorscheme.
-vim.cmd.colorscheme("gruvbox-material")
+vim.cmd.colorscheme("tokyonight")
+
+--documentFormattingProvider
