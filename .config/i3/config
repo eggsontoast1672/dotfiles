@@ -21,7 +21,7 @@ font pango:monospace 8
 # BINDINGS #
 ############
 
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 bindsym $mod+d      exec rofi -show drun
 
 # Shift focus between windows without using the mouse
@@ -64,29 +64,28 @@ floating_modifier $mod
 ##############
 
 bar {
-    font pango:JetBrainsMono Nerd Font Bold 10
-    position top
-    status_command i3blocks
-    workspace_min_width 40
+  font pango:monospace 10
+  position top
+  status_command i3status
 
-    colors {
-        background #292522
-        statusline #ece1d7
+  # colors {
+  #   background #292522
+  #   statusline #ece1d7
 
-        active_workspace   #a3a9ce #7f91b2 #ece1d7
-        focused_workspace  #a3a9ce #7f91b2 #ece1d7
-        inactive_workspace #34302c #292522 #ece1d6
-        urgent_workspace   #bd8183 #d47766 #ece1d7
-    }
+  #   active_workspace   #a3a9ce #7f91b2 #ece1d7
+  #   focused_workspace  #a3a9ce #7f91b2 #ece1d7
+  #   inactive_workspace #34302c #292522 #ece1d6
+  #   urgent_workspace   #bd8183 #d47766 #ece1d7
+  # }
 }
 
 ################
 # WINDOW STYLE #
 ################
 
-client.focused   #7f91b2 #7f91b2 #ece1d7 #7f91b2 #7f91b2
-client.unfocused #34302c #34302c #ece1d7 #34302c #34302c
-client.urgent    #d47766 #d47766 #ece1d7 #d47766 #d47766
+# client.focused   #7f91b2 #7f91b2 #ece1d7 #7f91b2 #7f91b2
+# client.unfocused #34302c #34302c #ece1d7 #34302c #34302c
+# client.urgent    #d47766 #d47766 #ece1d7 #d47766 #d47766
 
 default_border          pixel 3
 default_floating_border pixel 3
@@ -100,23 +99,23 @@ gaps inner 10
 bindsym $mod+r mode "resize"
 
 mode "resize" {
-    bindsym h       resize shrink width 10 px or 10 ppt
-    bindsym j       resize grow height 10 px or 10 ppt
-    bindsym k       resize shrink height 10 px or 10 ppt
-    bindsym l       resize grow width 10 px or 10 ppt
-    bindsym Escape  mode "default"
-    bindsym $mod+r  mode "default"
+  bindsym h       resize shrink width 10 px or 10 ppt
+  bindsym j       resize grow height 10 px or 10 ppt
+  bindsym k       resize shrink height 10 px or 10 ppt
+  bindsym l       resize grow width 10 px or 10 ppt
+  bindsym Escape  mode "default"
+  bindsym $mod+r  mode "default"
 }
 
 ##############
 # WORKSPACES #
 ##############
 
-set $ws1  "1:"
-set $ws2  "2:"
-set $ws3  "3:"
-set $ws4  "4:"
-set $ws5  "5:"
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
 set $ws6  "6"
 set $ws7  "7"
 set $ws8  "8"

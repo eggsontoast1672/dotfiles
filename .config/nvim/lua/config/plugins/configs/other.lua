@@ -3,8 +3,8 @@ local M = {
   { "hrsh7th/cmp-vsnip" },
   { "hrsh7th/nvim-cmp" },
   { "hrsh7th/vim-vsnip" },
+  { "mhanberg/monkey.nvim" },
   { "neovim/nvim-lspconfig" },
-  { "sainnhe/gruvbox-material" },
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
 }

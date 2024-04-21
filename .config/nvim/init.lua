@@ -8,6 +8,8 @@ if vim.g.vscode then
   return
 end
 
+vim.g.zig_fmt_autosave = 0
+
 local utils = require("config.utils")
 
 utils.setup_autocmds()
@@ -22,6 +24,4 @@ require("config.lsp").setup()
 
 -- However, the colorscheme must be initialized after the plugins, because I
 -- might using a plugin colorscheme.
-vim.cmd.colorscheme("tokyonight")
-
---documentFormattingProvider
+vim.cmd.colorscheme("onedark")
