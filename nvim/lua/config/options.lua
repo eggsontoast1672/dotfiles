@@ -1,25 +1,15 @@
-local M = {
-  clipboard = "unnamedplus",
-  colorcolumn = "80",
-  completeopt = "menu",
-  cursorline = true,
-  expandtab = true,
-  guicursor = "i:block",
-  hlsearch = false,
-  laststatus = 3,
-  number = true,
-  relativenumber = true,
-  scrolloff = 5,
-  shiftwidth = 2,
-  showmode = false,
-  signcolumn = "yes",
-  smartindent = true,
-  softtabstop = 2,
-  splitbelow = true,
-  splitright = true,
-  tabstop = 2,
-  termguicolors = true,
-  wrap = false,
-}
-
-return M
+vim.opt.colorcolumn = "80"
+vim.opt.cursorline = true
+vim.opt.expandtab = true
+vim.opt.guicursor = "i:block"
+vim.opt.laststatus = 0
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.shiftwidth = 2
+vim.opt.showmode = false
+vim.opt.signcolumn = "yes"
+vim.opt.smartindent = true
+vim.opt.softtabstop = 2
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.tabstop = 2

@@ -1,12 +1,19 @@
-local M = {
-  { mode = "i", lhs = "jk", rhs = "<esc>" },
-  { mode = "n", lhs = "<leader>e", rhs = vim.cmd.Explore },
-  { mode = "n", lhs = "<leader>he", rhs = ":%!xxd<cr>" },
-  { mode = "n", lhs = "<leader>hr", rhs = ":%!xxd -r<cr>" },
-  { mode = "n", lhs = "<leader>ss", rhs = "<c-w>s<cmd>terminal<cr>i" },
-  { mode = "n", lhs = "<leader>sv", rhs = "<c-w>v<cmd>terminal<cr>i" },
-  { mode = "n", lhs = "<leader>w", rhs = vim.cmd.write },
-  { mode = "t", lhs = "<esc>", rhs = "<c-\\><c-n>" },
-}
+local function compile_latex()
+  local outdir = "/tmp"
+  local file = vim.fn.expand("%")
+  vim.system({ "pdflatex", "-output-directory", outdir, file })
+end
 
-return M
+vim.keymap.set("n", "<leader>e", "<cmd>Explore<cr>")
+vim.keymap.set("n", "<leader>l", compile_latex)
+
+-- Opens the PDF compiled from the current LaTeX document in the browser.
+vim.keymap.set("n", "<leader>o", function()
+  local file = vim.fn.expand("%:t:r")
+  local pdf = "/tmp/" .. file .. ".pdf"
+  local browser = "firefox"
+  if not vim.uv.fs_stat(pdf) then
+    compile_latex()
+  end
+  vim.system({ browser, pdf })
+end)
