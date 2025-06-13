@@ -1,15 +1,18 @@
+-- General options
 vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true
-vim.opt.expandtab = true
 vim.opt.guicursor = "i:block"
-vim.opt.laststatus = 0
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.shiftwidth = 2
-vim.opt.showmode = false
-vim.opt.signcolumn = "yes"
 vim.opt.smartindent = true
-vim.opt.softtabstop = 2
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+
+-- Indentation options
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
 vim.opt.tabstop = 2
+
+-- LSP options
+vim.opt.signcolumn = "yes"

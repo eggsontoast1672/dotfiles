@@ -1,10 +1,8 @@
 return {
-  'nvim-telescope/telescope.nvim',
-  branch = '0.1.x',
-  dependencies = {
-    'nvim-lua/plenary.nvim',
-  },
+  "nvim-telescope/telescope.nvim",
+  branch = "0.1.x",
+  dependencies = { "nvim-lua/plenary.nvim" },
   keys = {
-    { "<leader>f", "<cmd>Telescope find_files<cr>" },
+    { "<leader>f", function() require("telescope.builtin").find_files() end },
   },
 }
