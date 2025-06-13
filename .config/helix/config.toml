@@ -1,7 +1,0 @@
-theme = "ayu_mirage"
-
-[editor]
-completion-trigger-len = 1
-idle-timeout = 0
-line-number = "relative"
-rulers = [80]
