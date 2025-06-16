@@ -13,5 +13,6 @@ install_config() {
 
 install_config alacritty "${HOME}/.config/alacritty"
 install_config nvim "${HOME}/.config/nvim"
+install_config picom "${HOME}/.config/picom"
 
 echo "-- Done!"
