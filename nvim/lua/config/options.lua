@@ -15,4 +15,5 @@ vim.opt.softtabstop = 2
 vim.opt.tabstop = 2
 
 -- LSP options
+vim.opt.completeopt = { "fuzzy", "menu", "menuone", "noinsert", "popup" }
 vim.opt.signcolumn = "yes"

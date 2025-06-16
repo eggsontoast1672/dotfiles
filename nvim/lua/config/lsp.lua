@@ -11,6 +11,7 @@ local servers = {
       },
     },
   },
+  rust_analyzer = {},
 }
 
 local function setup_completion(client, buffer)
@@ -47,6 +48,8 @@ end
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 
     setup_completion(client, args.buf)
     setup_formatting(client, args.buf)
