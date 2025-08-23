@@ -17,3 +17,7 @@ vim.opt.tabstop = 2
 -- LSP options
 vim.opt.completeopt = { "fuzzy", "menu", "menuone", "noinsert", "popup" }
 vim.opt.signcolumn = "yes"
+
+if vim.uv.fs_stat("CMakeLists.txt") then
+  vim.opt.makeprg = "cmake --build build"
+end

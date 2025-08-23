@@ -1,17 +1,12 @@
 local servers = {
-  clangd = {},
-  hls = {
-    settings = {
-      haskell = {
-        plugin = {
-          semanticTokens = {
-            globalOn = true,
-          },
-        },
-      },
-    },
-  },
-  rust_analyzer = {},
+  "clangd",
+  "hls",
+  -- "lua_ls", -- Disabled since it is very slow
+  "ols",
+  "omnisharp",
+  "rust_analyzer",
+  -- "texlab",
+  "zls",
 }
 
 local function setup_completion(client, buffer)
@@ -40,9 +35,10 @@ local function setup_formatting(client, buffer)
   })
 end
 
-for server, config in pairs(servers) do
-  vim.lsp.config(server, config)
+for _, server in pairs(servers) do
+  local ok, config = pcall(require, "config.lsp-configs." .. server)
   vim.lsp.enable(server)
+  vim.lsp.config(server, ok and config or {})
 end
 
 vim.api.nvim_create_autocmd("LspAttach", {

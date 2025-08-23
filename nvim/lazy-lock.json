@@ -1,10 +1,10 @@
 {
-  "gruvbox-material": { "branch": "master", "commit": "f5f912fbc7cf2d45da6928b792d554f85c7aa89a" },
+  "gruvbox-material": { "branch": "master", "commit": "d080710b58e605b45db0b0e4288205ca6f7587f0" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
-  "nvim-lspconfig": { "branch": "master", "commit": "7ad4a11cc5742774877c529fcfb2702f7caf75e4" },
+  "nvim-lspconfig": { "branch": "master", "commit": "9141be4c1332afc83bdf1b0278dbb030f75ff8e3" },
   "nvim-treesitter": { "branch": "master", "commit": "42fc28ba918343ebfd5565147a42a26580579482" },
-  "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
+  "plenary.nvim": { "branch": "master", "commit": "b9fd5226c2f76c951fc8ed5923d85e4de065e509" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
-  "vimtex": { "branch": "master", "commit": "4b4f18b1b181cdea35fdc418e5eb511f20e1f0fb" }
+  "vimtex": { "branch": "master", "commit": "6fabe8b7b5e83f753eb930036b1d941b2f7d3d4d" }
 }
