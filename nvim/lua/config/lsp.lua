@@ -9,6 +9,11 @@ local servers = {
   "zls",
 }
 
+local function process_config(config)
+  if not config.semantic_tokens then
+  end
+end
+
 local function setup_completion(client, buffer)
   if not client:supports_method("textDocument/completion") then
     return
@@ -16,16 +21,28 @@ local function setup_completion(client, buffer)
 
   vim.lsp.completion.enable(true, client.id, buffer, { autotrigger = true })
 
+  -- Allow inserting the currently selected completion option with the tab key.
+  -- We only want this behavior if the popup menu is visible though.
+  local function tab_meaning()
+    if vim.fn.pumvisible() == 1 then
+      return "<c-y>"
+    else
+      return "<tab>"
+    end
+  end
+  
+  vim.keymap.set("i", "<tab>", tab_meaning, { buffer = buffer, expr = true })
   vim.keymap.set("i", "<c-space>", vim.lsp.completion.get, { buffer = buffer })
-  vim.keymap.set("i", "<tab>", function()
-    return vim.fn.pumvisible() == 1 and "<c-y>" or "<tab>"
-  end, { buffer = buffer, expr = true })
 end
 
 local function setup_formatting(client, buffer)
-  if not client:supports_method("textDocument/formatting") then
-    return
-  end
+  -- This code is commented out because it prevents some language servers (such
+  -- as omnisharp) from formatting code even though they would do it with no
+  -- problem otherwise.
+  --
+  -- if not client:supports_method("textDocument/formatting") then
+  --   return
+  -- end
 
   vim.api.nvim_create_autocmd("BufWritePre", {
     buffer = buffer,
@@ -37,6 +54,10 @@ end
 
 for _, server in pairs(servers) do
   local ok, config = pcall(require, "config.lsp-configs." .. server)
+  if ok then
+    process_config(config)
+  end
+
   vim.lsp.enable(server)
   vim.lsp.config(server, ok and config or {})
 end
